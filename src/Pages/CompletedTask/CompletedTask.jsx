@@ -3,7 +3,6 @@ import { useContext } from 'react';
 import { toast } from 'react-hot-toast';
 import { RiDeleteBin5Fill } from 'react-icons/ri';
 import { Link } from 'react-router-dom';
-import BigLoder from '../Shared/Loader/BigLoder';
 // Modal Import
 import { Dialog, Transition } from '@headlessui/react'
 import { Fragment } from 'react'
@@ -80,7 +79,7 @@ const CompletedTask = () => {
 
 
     if (loading) {
-        return <BigLoder />
+        return <div>Loading...</div>
     }
 
 
