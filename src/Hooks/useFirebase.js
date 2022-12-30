@@ -6,6 +6,7 @@ import {
     onAuthStateChanged,
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
+    updateProfile
   } from "firebase/auth";
   import { useEffect, useState } from "react";
   import initializeAuthentication from "../Firebase/firebase.init";
@@ -31,7 +32,12 @@ import {
     const handleEmailPasswordLogin = (email, password) => {
       return signInWithEmailAndPassword(auth, email, password);
     };
-  
+    
+    const setUserName = (name, photoURL) => {
+      updateProfile(auth.currentUser, { displayName: name, photoURL }).then(
+        (result) => {}
+      );
+    };
   
     const logOut = () => {
       setLoading(true);
@@ -58,6 +64,7 @@ import {
       setUser,
       handleGoogleSignIn,
       logOut,
+      setUserName,
       handleEmailPasswordRegister,
       handleEmailPasswordLogin,
       loading,
