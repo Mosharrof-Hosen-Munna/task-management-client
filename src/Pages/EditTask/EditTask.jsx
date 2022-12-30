@@ -83,9 +83,10 @@ const EditTask = () => {
         <form onSubmit={handleSubmit}>
             <div className='p-4 w-1/3 mx-auto shadow-lg shadow-gray bg-white rounded-md'>
                 <div className='text-center font-bold text-xl mb-3'> Edit My Task</div>
-                <input defaultValue={title} name="title" type="text" className='w-[70%] pl-0 text-gray-500 font-semibold border-none text-lg focus:ring-0' placeholder='Title' /> <br />
-                <div className='text-xs mt-4 text-slate-600'>Task Description</div>
-                <textarea defaultValue={description} name="description" type="text" className='pl-0 w-full border-slate-300 text-gray-500  mt-0 focus:border-none' placeholder='Add Your Task' required />
+                <div className='text-xs mt-4 text-slate-600 mb-2'>Task Title</div>
+                <input defaultValue={title} name="title" type="text" className='w-full pl-2  outline-dashed outline-2 outline-slate-200 text-gray-500 p-1 font-semibold border-none text-lg focus:ring-0' placeholder='Title' /> <br />
+                <div className='text-xs mt-4 text-slate-600 mb-2'>Task Description</div>
+                <textarea defaultValue={description} name="description" type="text" className='w-full pl-2 mb-3  outline-dashed outline-2 outline-slate-200 text-gray-500 p-1 font-semibold border-none text-lg focus:ring-0' placeholder='Add Your Task' required />
 
                 <div className='flex justify-between items-center'>
                     <label htmlFor='image'>

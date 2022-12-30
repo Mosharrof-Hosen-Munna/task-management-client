@@ -80,8 +80,12 @@ const AddTask = () => {
     return (
         <form onSubmit={handleSubmit}>
             <div className='p-4 w-1/3 mx-auto shadow-lg shadow-gray bg-white rounded-md'>
-                <input name="title" type="text" className='pl-0 text-gray-500 font-semibold border-none text-lg focus:ring-0' placeholder='Title' /> <br />
-                <input name="description" type="text" className='pl-0 text-gray-500 border-none mt-1 focus:ring-0' placeholder='Add Your Task' required />
+            <div className='text-center font-bold text-xl mb-3'> Add New Task</div>
+                <div className='text-xs mt-4 text-slate-600 mb-2'>Task Title</div>
+                <input name="title" type="text" className='w-full pl-2  outline-dashed outline-2 outline-slate-200 text-gray-500 p-1 font-semibold border-none text-lg focus:ring-0' placeholder='Title' /> <br />
+                <div className='text-xs mt-4 text-slate-600 mb-2'>Task Description</div>
+
+                <textarea name="description" type="text" className='w-full pl-2  outline-dashed outline-2 outline-slate-200 text-gray-500 p-1 font-semibold border-none text-lg focus:ring-0' placeholder='Add Your Task' required />
 
                 <div className='flex justify-between items-center'>
                     <label htmlFor='image'>
