@@ -5,10 +5,9 @@ import { BsCardImage } from "react-icons/bs"
 import { MdAddCircle } from "react-icons/md"
 import { Link } from 'react-router-dom';
 import useAuth from '../../Hooks/useAuth';
-import SmallLoader from '../Shared/Loader/SmallLoader';
 
 
-const Home = () => {
+const AddTask = () => {
     const { user } = useAuth()
     const [image, setImage] = useState('')
     const [imageLoading, setImageLoading] = useState(false)
@@ -60,7 +59,7 @@ const Home = () => {
         const formData = new FormData()
         formData.append("image", image)
 
-        const url = `https://api.imgbb.com/1/upload?key=8af7531b01d2cfca606fd32789cd1f67`
+        const url = `https://api.imgbb.com/1/upload?key=86634dfbed78c297520e5a0dba91837d`
 
         fetch(url, {
             method: "POST",
@@ -89,7 +88,7 @@ const Home = () => {
                         <input onChange={handleImageChange} name='taskImage' id='image' className='hidden' type="file" />
                         {
                             imageLoading ?
-                                <SmallLoader />
+                               <div>loading....</div>
                                 :
                                 image ? <img className='w-24 h-14' src={image} alt="" />
                                     : <BsCardImage className='text-gray-500 text-2xl cursor-pointer' />
@@ -119,4 +118,4 @@ const Home = () => {
     );
 };
 
-export default Home;
+export default AddTask;

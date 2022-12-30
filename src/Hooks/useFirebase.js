@@ -2,13 +2,10 @@ import axios from "axios";
 import {
   getAuth,
   signOut,
-  signInWithPopup,
-  GoogleAuthProvider,
   onAuthStateChanged,
   createUserWithEmailAndPassword,
   updateProfile,
   signInWithEmailAndPassword,
-  deleteUser,
 } from "firebase/auth";
 import { useEffect, useState } from "react";
 import initializeAuthentication from "../Firebase/firebase.init";
@@ -20,11 +17,7 @@ const useFirebase = () => {
   const [loading, setLoading] = useState(true);
 
   const auth = getAuth();
-  const googleProvider = new GoogleAuthProvider();
 
-  const handleGoogleSignIn = () => {
-    return signInWithPopup(auth, googleProvider);
-  };
 
   const handleEmailPasswordRegister = (email, password, name) => {
     return createUserWithEmailAndPassword(auth, email, password);
@@ -64,21 +57,9 @@ const useFirebase = () => {
     }
   }, [user]);
 
-  const saveGoogleUserToDatabase = (user) => {
-    const url = `${process.env.REACT_APP_API_BASE_URL}/api/user/create`;
-    axios
-      .put(url, user)
-      .then((res) => {})
-      .catch((err) => console.log(err));
-  };
+ 
 
-  const saveUserToDatabase = (user) => {
-    const url = `${process.env.REACT_APP_API_BASE_URL}/api/user/create`;
-    axios
-      .post(url, user)
-      .then((res) => {})
-      .catch((err) => console.log(err));
-  };
+
 
   const logOut = () => {
     setLoading(true);
@@ -116,15 +97,12 @@ const useFirebase = () => {
   return {
     user,
     setUser,
-    handleGoogleSignIn,
     logOut,
     handleEmailPasswordRegister,
     setUserName,
     handleEmailPasswordLogin,
     loading,
     setLoading,
-    saveGoogleUserToDatabase,
-    saveUserToDatabase,
   };
 };
 

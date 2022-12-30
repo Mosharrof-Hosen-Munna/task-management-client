@@ -1,8 +1,9 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import useAuth from '../../../Hooks/useAuth';
 
 const Navigations = () => {
-    const { user, logOut } = useAuth()
+    const {user,logOut} = useAuth()
     return (
         <div>
             <nav className="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900 shadow-lg mb-14">
