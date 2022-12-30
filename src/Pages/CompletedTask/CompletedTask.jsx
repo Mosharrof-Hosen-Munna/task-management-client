@@ -30,7 +30,7 @@ const CompletedTask = () => {
 
     useEffect(() => {
         setLoading(true)
-        fetch(`${process.env.REACT_APP_SERVER_URL}/task?email=${user?.email}`)
+        fetch(`${process.env.REACT_APP_SERVER_URL}/task/user/${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 setAllTasks(data.data);

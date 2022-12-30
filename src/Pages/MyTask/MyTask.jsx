@@ -5,7 +5,6 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import { toast } from 'react-hot-toast';
 import { Link } from 'react-router-dom';
-import { useContext } from 'react';
 
 // Modal Import
 import { Dialog, Transition } from '@headlessui/react'
@@ -34,11 +33,12 @@ const MyTask = () => {
 
     useEffect(() => {
         setLoading(true)
-        fetch(`${process.env.REACT_APP_SERVER_URL}/task?email=${user?.email}`)
+        fetch(`${process.env.REACT_APP_SERVER_URL}/task/user/${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 setAllTasks(data.data);
                 setLoading(false)
+                console.log(data)
             })
             .catch(err => {
                 console.log(err);
@@ -104,6 +104,8 @@ const MyTask = () => {
                                         </div>
 
                                         <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{description.length > 80 ? description.slice(0, 80) + "..." : description}</p>
+
+                                        <div className='mb-2'>Status: {status}</div>
 
                                         <div className='flex justify-between items-center'>
 
